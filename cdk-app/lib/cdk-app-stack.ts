@@ -232,7 +232,7 @@ export class CdkAppStack extends cdk.Stack {
     const ecrRepo = new ecr.Repository(this, "EcrRepo");
 
     const gitHubSource = codebuild.Source.gitHub({
-      owner: "investwithaqua",
+      owner: "dp-aqua",
       repo: "react-app",
       webhook: true, // optional, default: true if `webhookFilteres` were provided, false otherwise
       webhookFilters: [
@@ -298,10 +298,12 @@ export class CdkAppStack extends cdk.Stack {
 
     const sourceAction = new codepipeline_actions.GitHubSourceAction({
       actionName: "GitHub_Source",
-      owner: "investwithaqua",
+      owner: "dp-aqua",
       repo: "react-app",
       branch: "main",
-      oauthToken: cdk.SecretValue.plainText("822203125410"),
+      oauthToken: cdk.SecretValue.plainText(
+        "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"
+      ),
       //oauthToken: cdk.SecretValue.plainText('<plain-text>'),
       output: sourceOutput,
     });
