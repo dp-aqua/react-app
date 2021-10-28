@@ -203,6 +203,7 @@ export class CdkAppStack extends cdk.Stack {
     //     listenerPort: 80,
     //   }
     // );
+
     const envUSA = { account: "822203125410", region: "us-east-1" };
     // Create a load-balanced Fargate service and make it public
     const fargateService = new ecs_patterns.ApplicationLoadBalancedFargateService(
@@ -269,17 +270,16 @@ export class CdkAppStack extends cdk.Stack {
           },
           build: {
             commands: [
-              "cd ..",
-              `docker build .`,
+              `docker build -t $ECR_REPO_URI:latest`,
               "$(aws ecr get-login --no-include-email)",
-              "docker push $ECR_REPO_URI:$TAG",
+              "docker push $ECR_REPO_URI:latest",
             ],
           },
           post_build: {
             commands: [
               'echo "In Post-Build Stage"',
               "cd ..",
-              'printf \'[{"name":"react-app","imageUri":"%s"}]\' $ECR_REPO_URI:$TAG > imagedefinitions.json',
+              'printf \'[{"name":"react-app","imageUri":"%s"}]\' $ECR_REPO_URI:latest > imagedefinitions.json',
               "pwd; ls -al; cat imagedefinitions.json",
             ],
           },
