@@ -280,9 +280,7 @@ export class CdkAppStack extends cdk.Stack {
             ],
           },
         },
-        artifacts: {
-          files: ["imagedefinitions.json"],
-        },
+        artifacts: {},
       }),
     });
 
