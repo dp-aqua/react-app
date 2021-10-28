@@ -16,7 +16,7 @@ export default function Routes() {
           <Home />
         </Route>
         <Route exact path="/login">
-          <div>This is the login page.</div>
+          <div>This is the new login page.</div>
         </Route>
         <Route exact path="/signup">
           <div>This is the sign up page.</div>
