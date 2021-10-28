@@ -270,7 +270,7 @@ export class CdkAppStack extends cdk.Stack {
           },
           build: {
             commands: [
-              `docker build -t $ECR_REPO_URI:latest`,
+              `docker build -t dp1851/sample-app:prod`,
               "$(aws ecr get-login --no-include-email)",
               "docker push $ECR_REPO_URI:latest",
             ],
