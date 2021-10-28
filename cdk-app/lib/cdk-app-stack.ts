@@ -279,7 +279,7 @@ export class CdkAppStack extends cdk.Stack {
             commands: [
               'echo "In Post-Build Stage"',
               "cd ..",
-              'printf \'[{"name":"react-app","imageUri":"%s"}]\' 822203125410.dkr.ecr.us-east-1.amazonaws.com/newcdkappstack-ecrrepobb83a592-m7psg8zb0he2:latest > imagedefinitions.json',
+              'printf \'[{"name":"react-app","imageUri":"%s"}]\' $ECR_REPO_URL:$TAG > imagedefinitions.json',
               "pwd; ls -al; cat imagedefinitions.json",
             ],
           },
