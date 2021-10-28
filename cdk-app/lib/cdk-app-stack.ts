@@ -270,16 +270,17 @@ export class CdkAppStack extends cdk.Stack {
           },
           build: {
             commands: [
-              `docker build -t dp1851/sample-app:prod`,
               "$(aws ecr get-login --no-include-email)",
-              "docker push $ECR_REPO_URI:latest",
+              `docker build -t newcdkappstack-ecrrepobb83a592-m7psg8zb0he2 .`,
+              "docker tag newcdkappstack-ecrrepobb83a592-m7psg8zb0he2:latest 822203125410.dkr.ecr.us-east-1.amazonaws.com/newcdkappstack-ecrrepobb83a592-m7psg8zb0he2:latest",
+              "docker push 822203125410.dkr.ecr.us-east-1.amazonaws.com/newcdkappstack-ecrrepobb83a592-m7psg8zb0he2:latest",
             ],
           },
           post_build: {
             commands: [
               'echo "In Post-Build Stage"',
               "cd ..",
-              'printf \'[{"name":"react-app","imageUri":"%s"}]\' $ECR_REPO_URI:latest > imagedefinitions.json',
+              'printf \'[{"name":"react-app","imageUri":"%s"}]\' 822203125410.dkr.ecr.us-east-1.amazonaws.com/newcdkappstack-ecrrepobb83a592-m7psg8zb0he2:latest > imagedefinitions.json',
               "pwd; ls -al; cat imagedefinitions.json",
             ],
           },
