@@ -271,7 +271,7 @@ export class CdkAppStack extends cdk.Stack {
           build: {
             commands: [
               "$(aws ecr get-login --no-include-email)",
-              `docker build -t newcdkappstack-ecrrepobb83a592-m7psg8zb0he2 .`,
+              `docker build -t newcdkappstack-ecrrepobb83a592-m7psg8zb0he2`,
               "docker tag newcdkappstack-ecrrepobb83a592-m7psg8zb0he2:latest 822203125410.dkr.ecr.us-east-1.amazonaws.com/newcdkappstack-ecrrepobb83a592-m7psg8zb0he2:latest",
               "docker push 822203125410.dkr.ecr.us-east-1.amazonaws.com/newcdkappstack-ecrrepobb83a592-m7psg8zb0he2:latest",
             ],
