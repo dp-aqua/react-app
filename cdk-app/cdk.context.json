@@ -1,0 +1,14 @@
+{
+  "availability-zones:account=822203125410:region=us-east-1": [
+    "us-east-1a",
+    "us-east-1b",
+    "us-east-1c",
+    "us-east-1d",
+    "us-east-1e",
+    "us-east-1f"
+  ],
+  "hosted-zone:account=822203125410:domainName=investwithaqua.com:region=us-east-1": {
+    "Id": "/hostedzone/Z04923852TT18HN1FI1UH",
+    "Name": "investwithaqua.com."
+  }
+}
