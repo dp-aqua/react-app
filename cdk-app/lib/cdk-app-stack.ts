@@ -302,7 +302,7 @@ export class CdkAppStack extends cdk.Stack {
       repo: "react-app",
       branch: "main",
       oauthToken: cdk.SecretValue.plainText(
-        "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"
+        "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"
       ),
       //oauthToken: cdk.SecretValue.plainText('<plain-text>'),
       output: sourceOutput,
