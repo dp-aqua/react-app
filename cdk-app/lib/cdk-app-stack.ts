@@ -164,7 +164,7 @@ export class CdkAppStack extends cdk.Stack {
     });
 
     container.addPortMappings({
-      containerPort: 5000,
+      containerPort: 80,
       protocol: ecs.Protocol.TCP,
     });
 
