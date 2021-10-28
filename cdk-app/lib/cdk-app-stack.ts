@@ -294,14 +294,14 @@ export class CdkAppStack extends cdk.Stack {
 
     const sourceOutput = new codepipeline.Artifact();
     const buildOutput = new codepipeline.Artifact();
-    //const oauth = cdk.SecretValue.secretsManager("my-github-token");
+    const oauth = cdk.SecretValue.secretsManager("my-github-token");
 
     const sourceAction = new codepipeline_actions.GitHubSourceAction({
       actionName: "GitHub_Source",
       owner: "dp-aqua",
       repo: "react-app",
       branch: "main",
-      oauthToken: cdk.SecretValue.plainText("822203125410"),
+      oauthToken: oauth,
       //oauthToken: cdk.SecretValue.plainText('<plain-text>'),
       output: sourceOutput,
     });
