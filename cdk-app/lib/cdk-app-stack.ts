@@ -269,7 +269,11 @@ export class CdkAppStack extends cdk.Stack {
             ],
           },
           build: {
-            commands: ["$(aws ecr get-login --no-include-email)"],
+            commands: [
+              "docker build -t $ECR_REPO_URL:$TAG",
+              "$(aws ecr get-login --no-include-email)",
+              "docker push $ECR_REPO_URI:$TAG",
+            ],
           },
           post_build: {
             commands: [
@@ -280,7 +284,7 @@ export class CdkAppStack extends cdk.Stack {
             ],
           },
         },
-        artifacts: {},
+        artifacts: ["imagedefinitions.json"],
       }),
     });
 
